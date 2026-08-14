@@ -77,6 +77,74 @@ console.log(person.name)//太郎
 console.log(person.age)//20
 
 
-//オブジェクトネスト
+//オブジェクトネスト{オブジェクトの中にさらにオブジェクトが入っていることです}
 
 
+let person2 = {
+//  キー 　値
+    name:"太郎",
+    age:20,
+    address:{
+        city: "osaka",
+        ward:"chuo-ward"
+    }
+};
+
+console.log(person2.address.city)//"osaka"
+
+//関数に関しての補足
+
+///関数は処理のかたまりです。　つまりデータを処理する処理機です。
+
+let name3 = "alice";
+
+//通常の関数
+function sayHello(){
+    console.log("hello " + name3);
+}
+
+sayHello();
+
+
+//関数式関数
+
+let sayHi = function(){
+    console.log("hi ");
+}
+
+sayHi();
+
+//アロー関数
+
+let aisatsu = () =>{
+     console.log("こんにちは");
+}
+
+aisatsu();
+
+
+//戻り値
+
+function add(a,b,c){///この書き方だと引数を書かなければなりません
+    return a * b * c // returnの後に書かれているものが処理されていく
+}
+
+console.log(add(2,2,1))//4
+
+
+///引数
+
+let naming = "taro";
+let naming2 = "hanako"
+let age = 20;
+let age2 = 21;
+
+function greet(){ ///パラメーター（引数）書かなくても認識されます
+    ///順番に処理されていく
+    console.log("こんにちは "+ naming + "さん " + age + "才");
+    console.log("こんにちは "+ naming2 + "さん " + age2 + "才");
+}
+
+greet()///パラメーター（引数）書かなくても認識されます)
+
+//こんにちは taroさん 20才
