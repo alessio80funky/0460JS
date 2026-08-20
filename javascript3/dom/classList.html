@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>classList メソッド例</title>
+  <style>
+    #box {
+      width: 200px;
+      height: 100px;
+      background: lightgray;
+      margin: 10px 0;
+      transition: 0.4s;
+    }
+
+    .active {
+      border: 3px solid blue;
+    }
+    .open {
+      transform: scale(1.2);
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>classList のデモ</h2>
+  <div id="box" class="hidden">BOX</div>
+  <button id="toggleBtn">.toggle("open")</button>
+
+  <p id="log">（ここに結果が表示されます）</p>
+
+  <script src="./classList.js"></script>
+</body>
+</html>

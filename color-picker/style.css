@@ -1,0 +1,23 @@
+body{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: grid;
+    place-items: center;
+    height: 100px;
+    background-color: black;
+    color: white;
+}
+
+h1{
+    color: 	rgb(255 0 0 / 50%);
+    font-size: 45px;
+    text-shadow: 1px 1px 0px #ffffff, 3px 3px 2px #663333; 
+}
+
+div{
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 30px;
+}
