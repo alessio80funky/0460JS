@@ -7,7 +7,7 @@
 
 const btn = document.getElementById("myBtn");
 
-addEventListener("dbclick", () => {
+addEventListener("click", () => {
     alert("クリックされました！");
   });
 
@@ -17,7 +17,7 @@ function sayHello() {
 
   btn.addEventListener("click", sayHello);
 
-  /**clea
+  /**clear
  * 2. removeEventListener("click", 関数)
  * 登録したイベントを削除する。
  * ※ 無名関数では削除できない（参照が必要だから）
