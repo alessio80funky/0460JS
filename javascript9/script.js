@@ -9,18 +9,26 @@ const descInput = document.getElementById('description');
 const amountInput = document.getElementById('amount');
 const typeInput = document.getElementById('type');
 
+
+const $ = (id) => document.getElementById(id);
+
+
+
 const transactionsList = document.getElementById('transactionsList');
 // 取引データをブラウザに保存する際のキー名です。
-STORAGE_KEY = 'kakeibo_20260902';
+const STORAGE_KEY = 'kakeibo_20260902';
 // 取引データを格納する配列です。
 let transactions = [];
+window.addEventListener("load", function(){
+    loading.classList.add("loaded");
 
 // 家計簿を使い始めるための最初の準備をする関数です。
 // フォームが送信されたときの処理を登録し、保存済みのデータを読み込んで画面を更新します。
 function init() {
     form.addEventListener('submit', submitTransaction);
     loadTransactions();
-    updateUI()
+    updateUI();
+    chartAnalytics();
 }
 
 init();
@@ -49,7 +57,7 @@ function submitTransaction(e) {
         date: new Date().toLocaleString("ja-JP")
     };
     // 取引の配列の先頭に追加します。
-    trensactions.unshift(transaction);
+    transactions.unshift(transaction);
     saveTransactions();
     updateUI()
     // フォームの入力内容をリセットします。
@@ -83,12 +91,13 @@ function deleteTransaction(id) {
 // 現在は、収入・支出・残高の合計表示を更新しています。
 function updateUI(){
     updateSummary();
+    updateTransactionsList();
 }
 
 // すべての取引から収入と支出の合計、残高を計算して表示する関数です。
 // 残高がプラス・マイナス・ゼロのどれかによって、文字の色も変更します。
 function updateSummary() {
-    
+
     // 収入の合計を計算します。
     const income = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
     // 同様に支出の合計も計算します。
@@ -109,3 +118,90 @@ function updateSummary() {
         balanceEl.style.color = '#2196f3';
     }
 }
+
+///データが読み込まれると、データがリストアップされ、データの内容が表示されます。
+function updateTransactionsList() {
+    transactionsList.innerHTML = '';
+
+    transactions.forEach(t => {
+        //データのリストの内容の生成の機能
+        const li = document.createElement('li');
+        li.className = `transaction-item ${t.type}`
+       //データの表示のパターン（ユーザー側）
+        const symbol = t.type === 'income' ? '+' : '-';
+       
+        li.innerHTML=`<div class="transaction-info">
+                <div class="transaction-description">${t.description}</div>
+                <small style="color: #999;">${t.date}</small>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <span class="transaction-amount ${t.type}">
+                    ${symbol}¥${t.amount.toLocaleString()}
+                </span>
+                <button class="btn-delete" onclick="deleteTransaction(${t.id})">削除</button>
+            </div>`;
+
+            ///リスアップされたデータは最新データ順に表示します
+            transactionsList.appendChild(li);
+    })
+
+}
+
+// 「グラフ表示」ボタンが押されたときに、収支グラフを表示する関数です。
+function chartAnalytics(){
+    const colors = [
+    { background: "rgb(171, 231, 200)", border: "rgb(6, 102, 58)" },
+    { background: "rgb(251, 109, 88)", border: "rgb(255, 0, 0)" },
+    { background: "rgb(129, 154, 253)", border: "rgb(25, 0, 255)" },
+];
+
+$("btn").addEventListener("click", function(){
+     // 収入の合計を計算します。
+    const income = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
+    // 同様に支出の合計も計算します。
+    const expense = transactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);
+    // 金額を合計します。
+    const balance = income - expense;
+
+    $("title").textContent = "収支グラフ";
+
+    //グラフのデータを表示する
+    // すでにグラフがある場合は削除し、何度押しても作り直せるようにします。
+    const existingChart = Chart.getChart($("Chart"));
+    if (existingChart) {
+        existingChart.destroy();
+    }
+    
+    new Chart($("Chart"), {
+        type: "pie",
+        data: {
+            labels: ["収入","支出","合計"],
+            datasets: [{
+                label:"合計",
+                data:[income,expense,balance],
+                borderWidth: 2,
+                borderColor: [colors[0].border, colors[1].border, colors[2].border],
+                backgroundColor: [colors[0].background, colors[1].background, colors[2].background]
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    });
+}
+
+
+
+});
+
+
+
+
+
+

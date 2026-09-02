@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+       <div id="loading" role="status">
+        <img class="spinner" src="./6-dots-scale-middle.svg">
+    </div>
+
 <div class="main-container">
     <h1>家計簿</h1>
 
@@ -53,17 +58,23 @@
     </div>
 
     <div class="chart-container">
-
+     <h1 id="title"></h1>
+        <div id="error"></div>
+        <canvas id="Chart" width="400" height="200"></canvas>
+        <button class="chart-btn" id="btn">グラフ表示</button>
+        <input class="reload" type="button" value="このページを再読込します" onclick="window.location.reload();" />
     </div>
 
     <div class="transaction-container">
         <h2>取引履歴</h2>
-        <ul class="transaction list" id="transactionList"></ul>
+        <ul class="transaction-list" id="transactionsList"></ul>
     </div>
 
     
     </div>
 </div>
     
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

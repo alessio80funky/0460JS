@@ -118,3 +118,126 @@ input, select{
     list-style: none;
 }
 
+.transaction-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    margin-bottom: 5px;
+    padding: 15px;
+    border-left: 5px solid;
+    transform: translateY(3px);
+    background: #fbf7f7;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+    border-radius: 10px;
+}
+
+.transaction-item.income {
+    border-left-color: #28a745;
+}
+
+.transaction-item.expense {
+    border-left-color: #dc3545;
+}
+
+.transaction-info {
+    flex: 1;
+}
+
+.transaction-description {
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.transaction-amount {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.transaction-amount.income {
+    color: #28a745;
+}
+
+.transaction-amount.expense {
+    color: #dc3545;
+}
+
+.btn-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-delete:hover {
+    background: #c82333;
+}
+
+.chart-btn{
+     background: #667eea;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+}
+
+.reload{
+    background: #667eea;
+    width: 100%;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 4px 4px rgba(0,0,0,0.2);
+}
+
+
+.chart-btn:hover{
+    transform: translateY(-3px);
+}
+
+.reload:hover{
+    transform: translateY(-3px);
+}
+
+canvas {
+  max-width: 100%;
+}
+
+#error {
+  min-height: 1.5em;
+  color: #c62828;
+}
+
+#loading {
+  transition: all 1s;
+  background-color: #ddd;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+}
+.spinner {
+  width: 200px;
+  height: 200px;
+}
+
+/* ローディング完了したらローディング画面を隠す */
+.loaded {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
