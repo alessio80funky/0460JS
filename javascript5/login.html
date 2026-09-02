@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+</head>
+<body>
+
+    <h1>ログイン</h1>
+
+    <input id="user" placeholder="ユーザー名">
+    <input id="pass" type="password" placeholder="パスワード">
+
+    <button id="login">ログイン</button>
+
+    <div id="res"></div>
+
+    <script>
+
+        const users = [
+            {name: "user1", pass:"pass1", active: true},
+            {name: "user2", pass:"pass2", active: false}
+        ]
+
+        document.getElementById("login").addEventListener("click", function(){
+            const u = document.getElementById("user").value;
+            const p = document.getElementById("pass").value;
+            const r = document.getElementById("res");
+
+            const usr = users.find(x => x.name === u );
+
+            if(!usr){
+                r.textContent = "ユーザーが存在しない"
+                r.className = "err";
+                return;
+            }
+
+            if(!usr.active){
+                r.textContent = "ユーザーが無効です";
+                r.className = "deactive";
+                return;
+            }
+
+            if(usr.pass === p){
+                r.textContent = "ログイン成功";
+                r.className = "ok";
+            }else{
+                r.textContent = "パスワードが違います";
+                r.className = "err";
+            }
+
+        })
+
+    </script>
+</body>
+</html>

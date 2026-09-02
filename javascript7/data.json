@@ -1,0 +1,33 @@
+[
+    {
+        "id":1,
+        "name": "tanaka",
+        "score":80
+    },
+      {
+        "id":2,
+        "name":"sato",
+        "score":45
+    },
+      {
+        "id":3,
+        "name":"suzuki",
+        "score":90
+    },
+     {
+        "id":4,
+        "name":"takahashi",
+        "score":66
+    },
+     {
+        "id":5,
+        "name":"kobayashi",
+        "score":100
+    },
+    {
+        "id":5,
+        "name":"hasegawa",
+        "score":70
+    }
+
+]

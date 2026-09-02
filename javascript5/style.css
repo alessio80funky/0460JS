@@ -1,0 +1,35 @@
+body{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    background-color: rgb(232, 149, 119);
+    max-width: 500px;
+    margin: 50px;
+    padding: 100px;
+}
+
+h1{
+    margin-top: 50px;
+    text-align: center;
+}
+
+input,button{
+    margin:10px;
+    padding: 5px;
+    align-items: center;
+}
+
+div#result  {
+    margin-top: 40px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.ok{
+    color: rgb(0, 255, 0);
+}
+
+.err{
+    color: rgb(137, 4, 4);
+}
+.deactive{
+    color: rgb(245, 229, 138);
+}

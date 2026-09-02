@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スコア判定</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="app">
+        <h1>スコア判定</h1>
+        <p>スコア入力してください</p>
+
+        <input type="text" id="input" placeholder="スコアを入力">
+
+        <button id="btn">判定</button>
+
+        <div class="res">
+            <h2>判定結果</h2>
+            <ul id="list"></ul>
+        </div>
+    </div>
+
+    <script>
+
+        const input = document.getElementById("input");
+        const btn = document.getElementById("btn");
+        const list = document.getElementById("list");
+
+
+btn.addEventListener("click", function(){
+
+     const v = input.value;
+        const score = v.split(",");
+
+        score.forEach(function(value){
+            const score = Number(value);
+            const item = document.createElement("li");
+
+            if (score >= 80 && score <= 100){
+                item.textContent = score + "点は合格です";
+                item.className = "pass";
+            }else if (score >= 0 && score <= 79){
+                item.textContent = score + "点は不合格です";
+                item.className = "nopass";
+            }else{
+                item.textContent = score + "点は判定の範囲外です";
+                item.className = "err";
+            }
+
+            list.appendChild(item);
+        });
+
+})
+       
+
+
+    </script>
+    
+</body>
+</html>

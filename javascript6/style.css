@@ -1,0 +1,79 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aqua;
+    margin: auto;
+    padding: 40px;
+}
+
+.app{
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: aliceblue;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1,p{
+    text-align: center;
+    color: #333333;
+}
+
+input{
+    width: 400px;
+    padding: 12px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 15px;
+    border-radius: 15px;
+    border: 1px;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+button{
+    width: 65px;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #333333;
+    border-radius: 15px;
+    cursor: pointer;
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+     border: 1px;
+}
+
+button:hover{
+    background-color: #78d6f2;
+}
+
+.res{
+ margin-top: 40px;
+}
+
+.res h2{
+    font-size: 20px;
+    border-bottom: 1px solid;
+    padding-bottom: 10px;
+}
+
+ul{
+padding: 0;
+list-style:none;
+}
+
+.pass{
+    color: rgb(0, 255, 0);
+}
+
+.nopass{
+    color: rgb(241, 10, 10);
+}
+.err{
+    color: rgb(245, 229, 138);
+}
+
+#list{
+    background-color: black;
+    padding: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
