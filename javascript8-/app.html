@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>売上分析</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div id="loading" role="status">
+        <img class="spinner" src="./6-dots-scale-middle.svg">
+    </div>
+
+    <div class="container">
+        <h1 id="title"></h1>
+        <div id="error"></div>
+        <canvas id="Chart" width="400" height="200"></canvas>
+        <button id="btn">グラフ表示</button>
+        <input type="button" value="このページを再読込します" onclick="window.location.reload();" />
+    </div>
+
+<script src="./script.js"></script>
+    
+</body>
+</html>

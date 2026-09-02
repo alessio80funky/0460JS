@@ -12,36 +12,36 @@
 
     <div class="summary-container">
       <div class="summary-item">
-        <span class="label"></span>
-        <span class="amount income">0</span>
+        <span class="label">収入</span>
+        <span class="amount income" id="totalIncome">0</span>
       </div>  
       <div class="summary-item">
-        <span class="label"></span>
-        <span class="amount expense">0</span>
+        <span class="label">支出</span>
+        <span class="amount expense" id="totalExpense">0</span>
       </div>  
       <div class="summary-item">
-        <span class="label"></span>
-        <span class="amount balance">0</span>
+        <span class="label">合計</span>
+        <span class="amount balance" id="totalBalance">0</span>
       </div>  
     </div>
 
     <div class="form-container">
-        <form>
+        <form id="transactionForm">
         <h2>取引を追加</h2>
 
         <div class="form-group">
         <label for="description">内容</label>
-        <input type="text" placeholder="例：ランチ代など"></input>
+        <input type="text" placeholder="例：ランチ代など" id="description" required></input>
         </div>
 
         <div class="form-group">
         <label for="amount">取引の金額</label>
-        <input type="number" placeholder="例: 1000"></input>
+        <input type="number" placeholder="例: 1000" id="amount" required></input>
         </div>
 
         <div class="form-group">
         <label for="type">取引の種類</label>
-        <select>
+        <select id="type" required>
             <option value="expense">支出</option>
             <option value="income">収入</option>
         </select>
@@ -51,7 +51,6 @@
 
         </form>
     </div>
-    </div>
 
     <div class="chart-container">
 
@@ -59,10 +58,11 @@
 
     <div class="transaction-container">
         <h2>取引履歴</h2>
-        <ul class="transaction list"></ul>
+        <ul class="transaction list" id="transactionList"></ul>
     </div>
 
-
+    
+    </div>
 </div>
     
 </body>
