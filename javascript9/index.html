@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kakeibo V1.0</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<div class="main-container">
+    <h1>家計簿</h1>
+
+    <div class="summary-container">
+      <div class="summary-item">
+        <span class="label"></span>
+        <span class="amount income">0</span>
+      </div>  
+      <div class="summary-item">
+        <span class="label"></span>
+        <span class="amount expense">0</span>
+      </div>  
+      <div class="summary-item">
+        <span class="label"></span>
+        <span class="amount balance">0</span>
+      </div>  
+    </div>
+
+    <div class="form-container">
+        <form>
+        <h2>取引を追加</h2>
+
+        <div class="form-group">
+        <label for="description">内容</label>
+        <input type="text" placeholder="例：ランチ代など"></input>
+        </div>
+
+        <div class="form-group">
+        <label for="amount">取引の金額</label>
+        <input type="number" placeholder="例: 1000"></input>
+        </div>
+
+        <div class="form-group">
+        <label for="type">取引の種類</label>
+        <select>
+            <option value="expense">支出</option>
+            <option value="income">収入</option>
+        </select>
+        </div>
+
+        <button type="submit" class="btn-submit">追加</button>
+
+        </form>
+    </div>
+    </div>
+
+    <div class="chart-container">
+
+    </div>
+
+    <div class="transaction-container">
+        <h2>取引履歴</h2>
+        <ul class="transaction list"></ul>
+    </div>
+
+
+</div>
+    
+</body>
+</html>
