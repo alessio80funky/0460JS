@@ -88,12 +88,14 @@ function updateUI(){
 // すべての取引から収入と支出の合計、残高を計算して表示する関数です。
 // 残高がプラス・マイナス・ゼロのどれかによって、文字の色も変更します。
 function updateSummary() {
+    
     // 収入の合計を計算します。
-    // 収入の取引だけを抽出し、金額を合計します。
-    // 同様に支出の合計も計算します。
     const income = transactions.filter(t => t.type === 'income').reduce((sum, t) => sum + t.amount, 0);
+    // 同様に支出の合計も計算します。
     const expense = transactions.filter(t => t.type === 'expense').reduce((sum, t) => sum + t.amount, 0);
+    // 金額を合計します。
     const balance = income - expense;
+
     // 計算結果を画面に表示します。
     totalIncomeEl.textContent = `${income.toLocaleString()}円`;
     totalExpensesEl.textContent =  `${expense.toLocaleString()}円`;
